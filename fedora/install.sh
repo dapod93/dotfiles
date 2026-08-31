@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install minimum packages
-./packages.sh
+./fedora/packages.sh
 
 # Install flatpak
 ./flatpak/packages.sh

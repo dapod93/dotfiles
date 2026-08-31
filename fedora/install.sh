@@ -11,7 +11,9 @@ echo "Run fedora installation scripts..."
 # Copy config to its appropriate location
 cp .config/fish/config.fish ~/.config/fish
 cp .config/starship/starship.toml ~/.config/starship
-cp -r .config/fastfetch ~/.config
+
+# Enable if u want larping
+# cp -r .config/fastfetch ~/.config
 
 # Change default shell to fish
 chsh -s $(which fish)

@@ -1,7 +1,9 @@
 #!/bin/bash
-# Install flatpak apps
+# Flatpak apps installation script
 
 set -euo pipefail
+
+echo "Installing flatpak apps..."
 
 # Setup flathub in flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -21,3 +23,5 @@ flatpak install -y flathub rest.insomnia.Insomnia
 
 # Only if u want to play Minecraft
 # flatpak install -y flathub com.modrinth.ModrinthApp
+
+echo "Done installing flatpak apps"

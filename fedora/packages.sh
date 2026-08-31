@@ -1,5 +1,5 @@
 #!/bin/bash
-# Install minimum packages
+# Fedora packages installation script
 
 set -euo pipefail
 
@@ -16,17 +16,20 @@ done 2>/dev/null &
 SUDO_KEEPALIVE_PID=$!
 trap "kill $SUDO_KEEPALIVE_PID" 2>/dev/null || 'true' EXIT
 
-echo "Installing software development packages ..."
+echo "Installing fedora packages ..."
 
-# Install minimum software development packages
+# Install build essentials
 sudo dnf group install -y c-development development-tools
 
+# Install minimum used packages
 sudo dnf install -y \
     bat \
+    btop \
     cascadia-mono-nf-fonts \
     eza \
     fish \
     git \
+    nvtop \
     make \
     ugrep
 
@@ -75,8 +78,6 @@ echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com
 dnf check-update
 sudo dnf install -y code
 
-echo "Done ..."
-
 # Install docker
 sudo dnf remove -y \
     docker \
@@ -114,3 +115,5 @@ sudo dnf install -y shfmt
 # Install sink
 sudo dnf copr enable -y nc1107/sink
 sudo dnf install -y sink
+
+echo "Done installing fedora packages ..."

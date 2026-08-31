@@ -18,6 +18,10 @@ trap "kill $SUDO_KEEPALIVE_PID" 2>/dev/null || 'true' EXIT
 
 echo "Installing software development packages ..."
 
+# Enable copr
+sudo dnf copr enable -y flasheater/shfmt
+sudo dnf copr enable -y nc1107/sink
+
 # Install minimum software development packages
 sudo dnf group install -y c-development development-tools
 
@@ -28,6 +32,8 @@ sudo dnf install -y \
     fish \
     git \
     make \
+    sink \
+    shfmt \
     ugrep
 
 # Install starship

@@ -117,3 +117,7 @@ sudo dnf copr enable -y nc1107/sink
 sudo dnf install -y sink
 
 echo "Done installing fedora packages ..."
+
+# Install Zen browser
+sudo dnf copr enable -y sneexy/zen-browser
+sudo dnf install zen-browser

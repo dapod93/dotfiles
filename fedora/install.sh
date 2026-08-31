@@ -3,6 +3,9 @@
 # Install minimum packages
 ./packages.sh
 
+# Install flatpak
+./flatpak/packages.sh
+
 # Copy fish config to its appropriate location
 sudo cp .config/fish/config.fish ~/.config/fish
 

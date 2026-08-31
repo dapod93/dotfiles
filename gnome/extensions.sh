@@ -8,8 +8,14 @@ mkdir -p ~/.local/share/gnome-shell/extensions
 
 # Array of your extension UUIDs (Find UUID in metadata.json)
 EXTENSIONS=(
-    "dash-to-dock@://gmail.com"
-    "blur-my-shell@aunetx"
+    auto-move-windows@gnome-shell-extensions.gcampax.github.com
+    blur-my-shell@aunetx
+    clipboard-history@alexsaveau.dev
+    just-perfection-desktop@just-perfection
+    system-monitor@gnome-shell-extensions.gcampax.github.com
+    unite@hardpixel.eu
+    unite@hardpixel.eu
+    user-theme@gnome-shell-extensions.gcampax.github.com
 )
 
 # Loop and enable/install via tool or local files

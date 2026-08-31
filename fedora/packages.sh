@@ -121,3 +121,7 @@ echo "Done installing fedora packages ..."
 # Install Zen browser
 sudo dnf copr enable -y sneexy/zen-browser
 sudo dnf install zen-browser
+
+# Install Helium browser
+dnf copr enable -y imput/helium
+dnf install helium-bin

@@ -116,8 +116,6 @@ sudo dnf install -y shfmt
 sudo dnf copr enable -y nc1107/sink
 sudo dnf install -y sink
 
-echo "Done installing fedora packages ..."
-
 # Install Zen browser
 sudo dnf copr enable -y sneexy/zen-browser
 sudo dnf install zen-browser
@@ -125,3 +123,5 @@ sudo dnf install zen-browser
 # Install Helium browser
 dnf copr enable -y imput/helium
 dnf install helium-bin
+
+echo "Done installing fedora packages ..."

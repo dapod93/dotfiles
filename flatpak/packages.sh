@@ -19,8 +19,9 @@ flatpak install -y flathub md.obsidian.Obsidian
 flatpak install -y flathub rest.insomnia.Insomnia
 flatpak install -y flathub org.gnome.Boxes
 
-# Only if using GNOME
-# flatpak install -y flathub com.mattjakeman.ExtensionManager
+if [[ "$XDG_CURRENT_DESKTOP" == *GNOME* ]]; then
+    flatpak install -y flathub com.mattjakeman.ExtensionManager
+fi
 
 # Only if u want to play Minecraft
 # flatpak install -y flathub com.modrinth.ModrinthApp

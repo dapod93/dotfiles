@@ -14,9 +14,9 @@ alias l. 'eza -ald --color=always --group-directories-first --icons always .*' #
 
 # Common use
 alias dir 'dir --color=auto'
-# alias egrep 'ugrep -E --color=auto'
-# alias fgrep 'ugrep -F --color=auto'
-# alias grep 'ugrep --color=auto'
+alias egrep 'ugrep -E --color=auto'
+alias fgrep 'ugrep -F --color=auto'
+alias grep 'ugrep --color=auto'
 alias ip 'ip -color'
 alias jctl 'journalctl -p 3 -xb'
 
@@ -30,27 +30,17 @@ if status is-interactive
 end
 
 # Run larp on greeting
-# Disabled because i hate larping
 # if status is-interactive
 #     nerdfetch
 #     # fastfetch --config ~/.config/fastfetch/presets/ascii-art.jsonc
 # end
 
 # Goenv setup
-set -x GOPRIVATE "github.com/verihubs/*"
-set -x GONOSUMDB "github.com/verihubs/*"
-
-set -x GOENV_ROOT $HOME/.goenv
-set -x PATH $GOENV_ROOT/bin $PATH
-
 status --is-interactive; and source (goenv init -|psub)
 
-set -x PATH $GOROOT/bin $PATH
-set -x PATH $PATH $GOPATH/bin
-
 # Source base venv
-source /home/dapod93/.base/bin/activate.fish
+source $HOME/.base/bin/activate.fish
 
 # Only for Fedora
 # Allow ctrl+backspace to only kill word instead the whole line with symbols and hypens
-bind alt-backspace backward-kill-word
+# bind alt-backspace backward-kill-word

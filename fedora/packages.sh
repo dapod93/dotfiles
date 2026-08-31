@@ -18,10 +18,6 @@ trap "kill $SUDO_KEEPALIVE_PID" 2>/dev/null || 'true' EXIT
 
 echo "Installing software development packages ..."
 
-# Enable copr
-sudo dnf copr enable -y flasheater/shfmt
-sudo dnf copr enable -y nc1107/sink
-
 # Install minimum software development packages
 sudo dnf group install -y c-development development-tools
 
@@ -32,9 +28,12 @@ sudo dnf install -y \
     fish \
     git \
     make \
-    sink \
-    shfmt \
     ugrep
+
+# Install 1password
+sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
+sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://downloads.1password.com/linux/keys/1password.asc" > /etc/yum.repos.d/1password.repo'
+sudo dnf install -y 1password
 
 # Install starship
 curl -sS https://starship.rs/install.sh | sudo sh -s -- -y
@@ -107,3 +106,11 @@ sudo usermod -aG docker $USER
 
 # Install teleport
 curl https://cdn.teleport.dev/install.sh | bash -s "18.11.0" "oss"
+
+# Install shfmt
+sudo dnf copr enable -y flasheater/shfmt
+sudo dnf install -y shfmt
+
+# Install sink
+sudo dnf copr enable -y nc1107/sink
+sudo dnf install -y sink

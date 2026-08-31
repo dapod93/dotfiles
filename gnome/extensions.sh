@@ -14,7 +14,6 @@ EXTENSIONS=(
     just-perfection-desktop@just-perfection
     system-monitor@gnome-shell-extensions.gcampax.github.com
     unite@hardpixel.eu
-    unite@hardpixel.eu
     user-theme@gnome-shell-extensions.gcampax.github.com
 )
 

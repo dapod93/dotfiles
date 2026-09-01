@@ -16,8 +16,8 @@ flatpak install -y flathub com.redis.RedisInsight
 flatpak install -y flathub com.spotify.Client
 flatpak install -y flathub io.dbeaver.DBeaverCommunity
 flatpak install -y flathub md.obsidian.Obsidian
-flatpak install -y flathub rest.insomnia.Insomnia
 flatpak install -y flathub org.gnome.Boxes
+flatpak install -y flathub rest.insomnia.Insomnia
 
 if [[ "$XDG_CURRENT_DESKTOP" == *GNOME* ]]; then
     flatpak install -y flathub com.mattjakeman.ExtensionManager

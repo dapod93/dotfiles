@@ -31,6 +31,7 @@ sudo dnf install -y \
     git \
     nvtop \
     make \
+    shfmt \
     ugrep
 
 if [[ "$XDG_CURRENT_DESKTOP" == *GNOME* ]]; then
@@ -63,14 +64,14 @@ go install entgo.io/ent/cmd/ent@latest
 go install github.com/bufbuild/buf/cmd/buf@latest
 go install github.com/segmentio/golines@latest
 go install github.com/swaggo/swag/cmd/swag@latest
-go install go install github.com/air-verse/air@latest
+go install github.com/air-verse/air@latest
 
 # Rehash goenv shims
 goenv rehash
 
 # Install global and activate pyvenv
 python -m venv ~/.base
-source $HOME/.base/bin/activate.fish
+source $HOME/.base/bin/activate
 pip completion --fish >~/.config/fish/completions/pip.fish
 
 # Install global python cli
@@ -79,7 +80,7 @@ python -m pip install pre-commit
 # Install VSCode
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo >/dev/null
-dnf check-update
+dnf check-update -y
 sudo dnf install -y code
 
 # Install docker
@@ -95,7 +96,7 @@ sudo dnf remove -y \
     docker-logrotate \
     docker-selinux
 
-sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf config-manager addrepo -y --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install -y \
     containerd.io \
     docker-buildx-plugin \
@@ -106,15 +107,11 @@ sudo dnf install -y \
 sudo systemctl enable --now docker
 
 # Docker post installations
-sudo groupadd docker
+sudo groupadd docker || true
 sudo usermod -aG docker $USER
 
 # Install teleport
 curl https://cdn.teleport.dev/install.sh | bash -s "18.11.0" "oss"
-
-# Install shfmt
-sudo dnf copr enable -y flasheater/shfmt
-sudo dnf install -y shfmt
 
 # Install sink
 sudo dnf copr enable -y nc1107/sink
@@ -122,10 +119,10 @@ sudo dnf install -y sink
 
 # Install Zen browser
 sudo dnf copr enable -y sneexy/zen-browser
-sudo dnf install zen-browser
+sudo dnf install -y zen-browser
 
 # Install Helium browser
-dnf copr enable -y imput/helium
-dnf install helium-bin
+sudo dnf copr enable -y imput/helium
+sudo dnf install -y helium-bin
 
 echo "Done installing fedora packages ..."
